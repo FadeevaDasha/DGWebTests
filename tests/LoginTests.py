@@ -7,6 +7,7 @@ from pages.LoginPage import LoginPageHelper
 BASE_URL = 'https://ok.ru/'
 EMPTY_LOGIN_ERROR = 'Введите логин'
 EMPTY_PASSWORD_ERROR = 'Введите пароль'
+EMAIL_TEXT = 'test'
 
 @allure.suite('Проверка формы авторизации')
 @allure.title('Проверка ошибки при пустой форме авторизации')
@@ -21,7 +22,7 @@ def test_empty_login_and_password(browser):
 def test_empty_password(browser):
     BasePage(browser).get_url(BASE_URL)
     LoginField = LoginPageHelper(browser)
-    LoginField.input_email_field()
+    LoginField.input_email_field(EMAIL_TEXT)
     LoginPage = LoginPageHelper(browser)
     LoginPage.click_login()
     assert LoginPage.get_error_text() == EMPTY_PASSWORD_ERROR
