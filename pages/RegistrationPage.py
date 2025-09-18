@@ -1,4 +1,4 @@
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 
 import allure
@@ -11,7 +11,7 @@ class RegistrationPageLocators:
     SUBMIT_BUTTON = (By.XPATH, '//input[@data-l="t,submit"]')
     SUPPORT_BUTTON = (By.XPATH, '//*[@data-l="t,support"]')
 
-class RegistrationPageHelper(BasePage):
+class RegistrationPageHelperHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
